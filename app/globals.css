@@ -1,0 +1,62 @@
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Brand Tokens ─── */
+:root {
+  --gold: #D4AF37;
+  --navy: #002147;
+  --navy-light: #002f63;
+  --gold-muted: #e8d07a;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+}
+
+/* ─── Base ─── */
+html {
+  font-family: var(--font-body);
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply antialiased;
+}
+
+/* ─── Focus ring using gold ─── */
+*:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ─── Sonner toast overrides ─── */
+[data-sonner-toaster] [data-success] {
+  background: var(--navy) !important;
+  color: white !important;
+  border: 1px solid var(--gold) !important;
+}
+
+[data-sonner-toaster] [data-error] {
+  background: #7f1d1d !important;
+  color: white !important;
+}
+
+/* ─── Line clamp utility ─── */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ─── Skeleton shimmer ─── */
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+}
